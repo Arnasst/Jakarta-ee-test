@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Competitors participating in #{competitionParticipants.competition.place}:</h2>
+    <ol>
+        <ui:repeat value="#{competitionParticipants.competition.participants}" var="participant">
+            <li>
+                <h:link value="#{participant.name}" outcome="sponsors?participantId=#{participant.id}"/>
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+<!--        <h:inputText a:placeholder="name" value="#{competitionParticipants.participantToCreate.name}" required="true" />-->
+        <h:commandButton value="Add competitor to the competition"
+                         actionListener="#{competitionParticipants.createParticipant()}"
+                         action="#{'participants?faces-redirect=true&amp;competitionId='.concat(competitionParticipants.competition.id)}">
+                <f:param name="competitionId" value="#{competitionParticipants.competition.id}" />
+        </h:commandButton>
+    </h:form>
+
+    <h:link outcome="index" value="Back to competiton page"/>
+</h:body>
+</html>

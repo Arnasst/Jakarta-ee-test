@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    #{greeter.greetVisitor()} <br/>
+    <h2>Competitions</h2>
+    <ol>
+        <ui:repeat value="#{competitions.allTeams}" var="competition">
+            <li><h:link value="#{competition.place}" outcome="participants?competitionId=#{competition.id}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{competitions.competitionToCreate.place}" required="true" />
+        <h:commandButton value="Add new competition" actionListener="#{competitions.createCompetition}" action="index?faces-redirect=true"/>
+    </h:form>
+<!--    <h:link outcome="myBatis/teams" value="MyBatis implementation"/>-->
+</h:body>
+</html>

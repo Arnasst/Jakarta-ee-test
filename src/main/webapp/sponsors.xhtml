@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head/>
+<h:body>
+    <h2>Sponsors for #{participantSponsors.participant.name}:</h2>
+    <ol>
+        <ui:repeat value="#{participantSponsors.participant.sponsors}" var="sponsor">
+            <li>
+                #{sponsor.name}
+            </li>
+        </ui:repeat>
+    </ol>
+
+    <h:link outcome="index" value="Back to competiton page"/>
+</h:body>
+</html>
