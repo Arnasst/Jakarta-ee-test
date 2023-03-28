@@ -8,7 +8,7 @@ import java.util.List;
         @NamedQuery(name = "Sponsor.findByName", query = "select a from Sponsor as a where a.name = :name")
 })
 public class Sponsor {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 

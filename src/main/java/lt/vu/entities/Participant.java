@@ -10,7 +10,7 @@ import java.util.List;
 })
 @Table(name = "PARTICIPANT")
 public class Participant {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 

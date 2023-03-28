@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="lt.vu.mybatis.model.Competition" alias="Competition"/>
+        <typeAlias type="lt.vu.mybatis.model.Participant" alias="Participant"/>
+        <typeAlias type="lt.vu.mybatis.model.Sponsor" alias="Sponsor"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="CompetitionsDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/CompetitionMapper.xml"/>
+        <mapper resource="mybatis.xml/ParticipantMapper.xml"/>
+        <mapper resource="mybatis.xml/SponsorMapper.xml"/>
+    </mappers>
+</configuration>

@@ -9,7 +9,7 @@ import java.util.List;
         @NamedQuery(name = "Competition.findOne", query = "select t from Competition as t where t.place = :place")
 })
 public class Competition {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
