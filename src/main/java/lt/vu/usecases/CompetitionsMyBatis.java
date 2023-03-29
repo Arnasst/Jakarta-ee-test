@@ -33,7 +33,6 @@ public class CompetitionsMyBatis {
 
     @Transactional
     public String createCompetition() {
-//        competitionToCreate.setId((long) (Math.random() * 1000000));
         competitionMapper.insert(competitionToCreate);
         return "/myBatis/competitions?faces-redirect=true";
     }

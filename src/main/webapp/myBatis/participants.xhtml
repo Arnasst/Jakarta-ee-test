@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>MyBatis</h2>
+    <h2>Competitors participating in #{competitionParticipantsMyBatis.competition.place}:</h2>
+    <ol>
+        <ui:repeat value="#{competitionParticipantsMyBatis.participants}" var="participant">
+            <li>
+                #{participant.name}
+            </li>
+        </ui:repeat>
+    </ol>
+
+    <h:link outcome="/myBatis/competitions" value="Back to my batis competition page"/>
+</h:body>
+</html>

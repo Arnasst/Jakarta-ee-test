@@ -58,7 +58,7 @@ public class CompetitionParticipants implements Serializable {
 
     @Transactional
     private List<Sponsor> getSponsors() {
-        List<String> sponsorNames = List.of("Nike", "Addidas", "Puma", "Reebok", "Under Armour", "New Balance", "Apple");
+        List<String> sponsorNames = List.of("Nike", "Adidas", "Puma", "Reebok", "Under Armour", "New Balance", "Apple");
         HashSet<Sponsor> sponsorList = new HashSet<Sponsor>();
         for (int i = 0; i < 2; i++) {
             String newSponsorName = sponsorNames.get((int)(Math.random() * sponsorNames.size()));

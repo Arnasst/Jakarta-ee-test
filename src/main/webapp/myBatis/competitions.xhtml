@@ -7,10 +7,11 @@
 <h:head/>
 <h:body>
     #{greeter.greetVisitor()} <br/>
+    <h2>MyBatis</h2>
     <h2>Competitions</h2>
     <ol>
         <ui:repeat value="#{competitionsMyBatis.allCompetitions}" var="competition">
-            <li>#{competition.place}</li>
+            <li><h:link value="#{competition.place}" outcome="/myBatis/participants?competitionId=#{competition.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>

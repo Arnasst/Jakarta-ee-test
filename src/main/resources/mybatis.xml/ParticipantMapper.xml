@@ -50,6 +50,11 @@
     from PUBLIC.PARTICIPANT
     where ID = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByCompetitionId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, NAME, COMPETITION_ID
+    from PUBLIC.PARTICIPANT
+    where COMPETITION_ID = #{competitionId,jdbcType=BIGINT}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated
