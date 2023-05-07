@@ -5,6 +5,7 @@ import lt.vu.entities.Competition;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import java.util.List;
 
 @ApplicationScoped
@@ -30,7 +31,21 @@ public class CompetitionsDAO {
         this.em.persist(competition);
     }
 
+    public Competition update(Competition competition){
+        return em.merge(competition);
+    }
+
+    public void flush() {
+        em.flush();
+    }
+
     public Competition findOne(Long id) {
         return em.find(Competition.class, id);
+    }
+
+    public Competition findOneLocked(Long id)
+    {
+        return em.find(Competition.class, id,
+                LockModeType.OPTIMISTIC_FORCE_INCREMENT);
     }
 }
