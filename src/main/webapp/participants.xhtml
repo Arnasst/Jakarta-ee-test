@@ -23,6 +23,14 @@
         </h:commandButton>
     </h:form>
 
+    <h:form>
+        <h:outputText value="#{generateSponsors.sponsorGenerationStatus}" /> <br/>
+        <h:commandButton value="Generate potential sponsors?" disabled="#{generateSponsors.sponsorGenerationRunning}"
+                         actionListener="#{generateSponsors.generateNewSponsors()}"
+                         action="#{'participants?faces-redirect=true&amp;competitionId='.concat(competitionParticipants.competition.id)}">
+            <f:param name="competitionId" value="#{competitionParticipants.competition.id}" />
+        </h:commandButton>
+    </h:form>
     <h:link outcome="/index" value="Back to competition page"/>
 </h:body>
 </html>

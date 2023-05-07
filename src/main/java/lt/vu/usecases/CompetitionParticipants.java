@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.mail.Part;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.*;
@@ -61,7 +60,7 @@ public class CompetitionParticipants implements Serializable {
         List<String> sponsorNames = List.of("Nike", "Adidas", "Puma", "Reebok", "Under Armour", "New Balance", "Apple");
         HashSet<Sponsor> sponsorList = new HashSet<Sponsor>();
         for (int i = 0; i < 2; i++) {
-            String newSponsorName = sponsorNames.get((int)(Math.random() * sponsorNames.size()));
+            String newSponsorName = sponsorNames.get((int) (Math.random() * sponsorNames.size()));
             Sponsor newSponsor;
             try {
                 newSponsor = sponsorsDAO.findByName(newSponsorName);

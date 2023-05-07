@@ -1,6 +1,7 @@
 package lt.vu.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,10 @@ public class Competition {
     @Basic
     private String place;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     public String getPlace() {
         return place;
     }
@@ -41,5 +46,13 @@ public class Competition {
 
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
+    }
+
+    public Integer getSponsorCount() {
+        HashSet<Sponsor> competitionSponsors = new HashSet<>();
+        for (Participant participant : this.participants) {
+            competitionSponsors.addAll(participant.getSponsors());
+        }
+        return competitionSponsors.size();
     }
 }
