@@ -6,11 +6,12 @@
 >
 <h:head/>
 <h:body>
-    #{greeter.greetVisitor()} <br/>
+    #{communicator.greetVisitor()} <br/>
+    #{communicator.emitSound()} <br/>
     <h2>Competitions</h2>
     <ol>
         <ui:repeat value="#{competitions.allTeams}" var="competition">
-            <li><h:link value="#{competition.place}" outcome="participants?competitionId=#{competition.id}"/></li>
+            <li><h:link value="#{competition.place} (#{competition.getSponsorCount()})" outcome="participants?competitionId=#{competition.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>
