@@ -54,22 +54,16 @@ public class CompetitionController {
         try {
             return updateCompetition(compId, competitionData);
         }
-        // javax.transaction.RollbackException
         catch (OptimisticLockException ole) {
             return Response.status(Response.Status.CONFLICT).build();
         }
-//        catch (RollbackException e) {
-//            if (e.getCause() instanceof OptimisticLockException) {
-//                return Response.status(Response.Status.FORBIDDEN).build();
-//            }
-//        }
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     private Response updateCompetition(final Long compId, CompetitionDto competitionData)
     {
 //        Competition existingCompetition = competitionsDAO.findOne(compId);
-            Competition existingCompetition = competitionsDAO.findOneLocked(compId);
+        Competition existingCompetition = competitionsDAO.findOneLocked(compId);
         if (existingCompetition == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -81,6 +75,7 @@ public class CompetitionController {
         }
 
         competitionsDAO.update(existingCompetition);
+        competitionsDAO.flush();
         return Response.ok().build();
     }
 

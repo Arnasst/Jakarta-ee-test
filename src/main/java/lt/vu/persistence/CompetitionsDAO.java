@@ -3,12 +3,14 @@ package lt.vu.persistence;
 import lt.vu.entities.Competition;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import java.util.List;
 
-@ApplicationScoped
+//@ApplicationScoped
+@RequestScoped
 public class CompetitionsDAO {
 
     @Inject

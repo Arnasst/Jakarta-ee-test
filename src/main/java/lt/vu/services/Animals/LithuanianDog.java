@@ -1,13 +1,13 @@
 package lt.vu.services.Animals;
 
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Specializes;
 
 @Specializes
-@Alternative
-public class Cat extends Dog {
+@RequestScoped
+public class LithuanianDog extends Dog {
     @Override
     public String emitSound() {
-        return "Meow " + toString();
+        return "Au " + toString();
     }
 }

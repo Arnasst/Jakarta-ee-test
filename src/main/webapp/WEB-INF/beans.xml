@@ -12,7 +12,7 @@
     <alternatives>
         <class>lt.vu.services.Communication.FormalGreeter</class>
 <!--        <class>lt.vu.services.Communication.FriendlyGreeter</class>-->
-        <class>lt.vu.services.Animals.Cat</class>
+        <class>lt.vu.services.Animals.Dog</class>
     </alternatives>
     <decorators>
         <class>lt.vu.services.Communication.DecorativeGreeter</class>

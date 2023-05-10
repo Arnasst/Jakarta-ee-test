@@ -1,6 +1,5 @@
 package lt.vu.usecases;
 
-import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.services.SponsorGenerator;
 
 import javax.enterprise.context.SessionScoped;
@@ -9,7 +8,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -21,7 +19,6 @@ public class GenerateSponsors implements Serializable {
 
     private CompletableFuture<List<String>> sponsorGeneratorTask = null;
 
-    @LoggedInvocation
     public void generateNewSponsors() {
         sponsorGeneratorTask = CompletableFuture.supplyAsync(() -> sponsorGenerator.generateSponsors());
     }
